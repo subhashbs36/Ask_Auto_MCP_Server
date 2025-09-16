@@ -6,6 +6,7 @@ import yaml
 from pathlib import Path
 from typing import Dict, Any, Optional
 from pydantic import ValidationError
+from dotenv import load_dotenv
 
 from .models import ServerConfig, LLMConfig, RedisConfig, PromptsConfig, GuardrailsConfig
 
@@ -18,13 +19,33 @@ class ConfigurationError(Exception):
 class ConfigLoader:
     """Loads and validates configuration from multiple sources."""
     
-    def __init__(self, config_file: Optional[str] = None):
+    def __init__(self, config_file: Optional[str] = None, env_file: Optional[str] = None):
         """Initialize the configuration loader.
         
         Args:
             config_file: Optional path to YAML configuration file
+            env_file: Optional path to .env file (defaults to .env in current directory)
         """
         self.config_file = config_file or "config.yaml"
+        self.env_file = env_file or ".env"
+        
+        # Load .env file if it exists
+        self._load_env_file()
+    
+    def _load_env_file(self) -> None:
+        """Load environment variables from .env file if it exists."""
+        env_path = Path(self.env_file)
+        if env_path.exists():
+            load_dotenv(env_path)
+        else:
+            # Try to find .env file in current working directory or config file directory
+            cwd_env = Path.cwd() / ".env"
+            if cwd_env.exists():
+                load_dotenv(cwd_env)
+            elif self.config_file:
+                config_dir_env = Path(self.config_file).parent / ".env"
+                if config_dir_env.exists():
+                    load_dotenv(config_dir_env)
     
     def load_config(self) -> ServerConfig:
         """Load configuration from environment variables and YAML file.
@@ -89,6 +110,11 @@ class ConfigLoader:
             llm_config['provider'] = os.getenv('LLM_PROVIDER')
         if os.getenv('LLM_API_KEY'):
             llm_config['api_key'] = os.getenv('LLM_API_KEY')
+        # Support direct API key environment variables
+        elif os.getenv('GEMINI_API_KEY'):
+            llm_config['api_key'] = os.getenv('GEMINI_API_KEY')
+        elif os.getenv('OPENAI_API_KEY'):
+            llm_config['api_key'] = os.getenv('OPENAI_API_KEY')
         if os.getenv('LLM_ENDPOINT'):
             llm_config['endpoint'] = os.getenv('LLM_ENDPOINT')
         if os.getenv('LLM_MODEL'):
@@ -462,11 +488,12 @@ class ConfigLoader:
             self.config_file = original_file
 
 
-def load_config(config_file: Optional[str] = None) -> ServerConfig:
+def load_config(config_file: Optional[str] = None, env_file: Optional[str] = None) -> ServerConfig:
     """Convenience function to load configuration.
     
     Args:
         config_file: Optional path to YAML configuration file
+        env_file: Optional path to .env file
         
     Returns:
         ServerConfig: Validated server configuration
@@ -474,7 +501,7 @@ def load_config(config_file: Optional[str] = None) -> ServerConfig:
     Raises:
         ConfigurationError: If configuration loading or validation fails
     """
-    loader = ConfigLoader(config_file)
+    loader = ConfigLoader(config_file, env_file)
     return loader.load_config()
 
 
