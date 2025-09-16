@@ -1,0 +1,34 @@
+# Testing Environment Configuration
+
+llm_config:
+  provider: "mock"  # Use mock provider for testing
+  api_key: "test-key"
+  model: "test-model"
+  timeout: 10
+  retry_attempts: 1
+  backoff_factor: 1.0
+
+redis_config:
+  host: "localhost"
+  port: 6379
+  password: ""
+  db: 1  # Use different DB for testing
+
+prompts_config:
+  system_prompt_file: "tests/fixtures/test_system_prompt.txt"
+  edit_instruction_template: "tests/fixtures/test_edit_instruction.txt"
+  guardrails_prompt_file: "tests/fixtures/test_guardrails_prompt.txt"
+
+guardrails_config:
+  enabled: true
+  max_changes_per_request: 10
+  forbidden_patterns: ["test_forbidden"]
+  allowed_json_types: ["object", "array", "string", "number", "boolean", "null"]
+
+max_document_size: 102400  # 100KB for testing
+log_level: "DEBUG"
+
+session_config:
+  default_ttl: 300  # 5 minutes
+  cleanup_interval: 30  # 30 seconds
+  max_concurrent_sessions: 10

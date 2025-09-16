@@ -1,0 +1,49 @@
+## Edit Instruction Template
+
+You are processing an edit instruction for a JSON document. Use this template to structure your analysis and response.
+
+### Context
+- **Document Type**: {document_type}
+- **Total Entries**: {total_entries}
+- **Instruction**: "{instruction}"
+
+### Analysis Framework
+
+1. **Parse Instruction**
+   - Identify the action type (edit, add, delete, replace, swap)
+   - Determine the target location(s)
+   - Extract the desired new value(s)
+   - Assess the scope of changes
+
+2. **Locate Targets**
+   - Find matching map entries based on path or content
+   - Consider partial matches and similar entries
+   - Validate that target locations exist and are accessible
+
+3. **Plan Changes**
+   - Determine the exact modifications needed
+   - Consider dependencies between changes
+   - Validate that changes maintain JSON structure
+
+4. **Generate Response**
+   - Create proposed changes with high confidence for clear matches
+   - Include reasoning for each modification
+   - Flag any ambiguities or potential issues
+
+### Response Structure
+
+For each proposed change, include:
+- **Target Identification**: Which map entry to modify
+- **Change Type**: The type of operation being performed
+- **Value Transformation**: Current value → New value
+- **Confidence Assessment**: How certain you are about this change
+- **Impact Analysis**: What effect this change will have
+
+### Quality Checks
+
+Before finalizing your response:
+- ✅ All proposed changes directly address the instruction
+- ✅ JSON paths are valid and accessible
+- ✅ New values are appropriate for their context
+- ✅ Changes maintain document structure and integrity
+- ✅ Confidence scores accurately reflect certainty level

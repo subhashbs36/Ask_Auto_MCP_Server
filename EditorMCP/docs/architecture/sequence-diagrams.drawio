@@ -1,0 +1,401 @@
+<mxfile host="65bd71144e">
+    <diagram name="Preview Operation Flow" id="preview-flow">
+        <mxGraphModel dx="778" dy="292" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="client-actor" value="MCP Client" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="server-actor" value="MCP Server" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="preview-actor" value="Preview Tool" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="json-actor" value="JSON Processor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm-actor" value="LLM Service" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="650" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="session-actor" value="Session Manager" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="client-lifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="60" y="150" width="10" height="500" as="geometry"/>
+                </mxCell>
+                <mxCell id="server-lifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="210" y="150" width="10" height="500" as="geometry"/>
+                </mxCell>
+                <mxCell id="preview-lifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="360" y="150" width="10" height="500" as="geometry"/>
+                </mxCell>
+                <mxCell id="json-lifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="510" y="150" width="10" height="500" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm-lifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="660" y="150" width="10" height="500" as="geometry"/>
+                </mxCell>
+                <mxCell id="session-lifeline" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="810" y="150" width="10" height="500" as="geometry"/>
+                </mxCell>
+                <mxCell id="msg1" value="json_editor_preview(document, instruction)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="70" y="180" as="sourcePoint"/>
+                        <mxPoint x="210" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg2" value="handle_preview_request()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="220" y="210" as="sourcePoint"/>
+                        <mxPoint x="360" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg3" value="validate_input()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="365" y="240" as="sourcePoint"/>
+                        <mxPoint x="365" y="260" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg4" value="json2map(document)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="370" y="290" as="sourcePoint"/>
+                        <mxPoint x="510" y="290" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg5" value="map_entries[]" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="510" y="320" as="sourcePoint"/>
+                        <mxPoint x="370" y="320" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg6" value="get_proposed_changes(map_entries, instruction)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="370" y="350" as="sourcePoint"/>
+                        <mxPoint x="660" y="350" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg7" value="analyze_instruction()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="665" y="380" as="sourcePoint"/>
+                        <mxPoint x="665" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg8" value="proposed_changes[]" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="660" y="430" as="sourcePoint"/>
+                        <mxPoint x="370" y="430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg9" value="create_session(document, changes)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="370" y="460" as="sourcePoint"/>
+                        <mxPoint x="810" y="460" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg10" value="store_session_data()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="815" y="490" as="sourcePoint"/>
+                        <mxPoint x="815" y="510" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg11" value="session_id" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="810" y="540" as="sourcePoint"/>
+                        <mxPoint x="370" y="540" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg12" value="format_preview_response()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="365" y="570" as="sourcePoint"/>
+                        <mxPoint x="365" y="590" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg13" value="PreviewResponse(changes, session_id)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="360" y="620" as="sourcePoint"/>
+                        <mxPoint x="220" y="620" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="msg14" value="MCP Response(preview_data)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="210" y="640" as="sourcePoint"/>
+                        <mxPoint x="70" y="640" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="L0-lGwEP_ULHMlwo2B5o-1" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Preview Operation Flow&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="320" width="230" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="Error Handling Flow" id="error-flow">
+        <mxGraphModel dx="778" dy="292" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="client-actor3" value="MCP Client" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="server-actor3" value="MCP Server" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tool-actor3" value="Tool Handler" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm-actor3" value="LLM Service" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="client-lifeline3" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="60" y="150" width="10" height="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="server-lifeline3" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="210" y="150" width="10" height="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="tool-lifeline3" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="360" y="150" width="10" height="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm-lifeline3" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="510" y="150" width="10" height="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="error-label1" value="Scenario 1: Input Validation Error" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=12;fillColor=#ffcccc;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="170" width="200" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="error-msg1" value="tool_request(invalid_data)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="70" y="200" as="sourcePoint"/>
+                        <mxPoint x="210" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="error-msg2" value="handle_request()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="220" y="220" as="sourcePoint"/>
+                        <mxPoint x="360" y="220" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="error-msg3" value="validate_input()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="365" y="240" as="sourcePoint"/>
+                        <mxPoint x="365" y="260" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="error-msg4" value="ValidationError" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=#ff0000;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="360" y="280" as="sourcePoint"/>
+                        <mxPoint x="220" y="280" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="error-msg5" value="MCP Error Response" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=#ff0000;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="210" y="300" as="sourcePoint"/>
+                        <mxPoint x="70" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="error-label2" value="Scenario 2: LLM Service Error with Retry Logic" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=12;fillColor=#ffffcc;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="340" width="300" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="error-msg6" value="get_proposed_changes()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="370" y="370" as="sourcePoint"/>
+                        <mxPoint x="510" y="370" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="error-msg7" value="ServiceError (rate limit/timeout)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=#ff6600;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="510" y="390" as="sourcePoint"/>
+                        <mxPoint x="370" y="390" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="error-msg8" value="handle_llm_error()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="365" y="410" as="sourcePoint"/>
+                        <mxPoint x="365" y="430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="error-note1" value="Note: Implement retry logic&#xa;with exponential backoff" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="410" width="150" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="error-msg9" value="retry_request()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="370" y="470" as="sourcePoint"/>
+                        <mxPoint x="510" y="470" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="alt-frame" value="alt" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=40;height=20;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="490" width="240" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="error-msg10" value="successful_response" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=#00cc00;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="510" y="520" as="sourcePoint"/>
+                        <mxPoint x="370" y="520" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="alt-separator" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};dashed=1;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="550" width="240" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="error-msg11" value="LLMServiceError" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=#ff0000;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="360" y="580" as="sourcePoint"/>
+                        <mxPoint x="220" y="580" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="error-label3" value="Scenario 3: Session Error" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=12;fillColor=#ffccff;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="640" width="200" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="error-msg12" value="get_session(invalid_id)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="370" y="670" as="sourcePoint"/>
+                        <mxPoint x="450" y="670" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="error-msg13" value="SessionNotFoundError" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=#ff0000;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="450" y="690" as="sourcePoint"/>
+                        <mxPoint x="370" y="690" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="error-msg14" value="SessionError" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=#ff0000;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="360" y="710" as="sourcePoint"/>
+                        <mxPoint x="220" y="710" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="error-msg15" value="MCP Error Response" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=#ff0000;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="210" y="730" as="sourcePoint"/>
+                        <mxPoint x="70" y="730" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mHVRPs0UCguy18iuXwMo-1" value="&lt;b style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Error Handling Flow&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="220" width="230" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="Apply Operation Flow" id="apply-flow">
+        <mxGraphModel dx="778" dy="292" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="client-actor2" value="MCP Client" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="server-actor2" value="MCP Server" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="apply-actor2" value="Apply Tool" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="session-actor2" value="Session Manager" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="redis-actor2" value="Redis Store" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="650" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="json-actor2" value="JSON Processor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="client-lifeline2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="60" y="150" width="10" height="450" as="geometry"/>
+                </mxCell>
+                <mxCell id="server-lifeline2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="210" y="150" width="10" height="450" as="geometry"/>
+                </mxCell>
+                <mxCell id="apply-lifeline2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="360" y="150" width="10" height="450" as="geometry"/>
+                </mxCell>
+                <mxCell id="session-lifeline2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="510" y="150" width="10" height="450" as="geometry"/>
+                </mxCell>
+                <mxCell id="redis-lifeline2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="660" y="150" width="10" height="450" as="geometry"/>
+                </mxCell>
+                <mxCell id="json-lifeline2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+                    <mxGeometry x="810" y="150" width="10" height="450" as="geometry"/>
+                </mxCell>
+                <mxCell id="apply-msg1" value="json_editor_apply(session_id, confirmed_changes)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="70" y="180" as="sourcePoint"/>
+                        <mxPoint x="210" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="apply-msg2" value="handle_apply_request()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="220" y="210" as="sourcePoint"/>
+                        <mxPoint x="360" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="apply-msg3" value="get_session(session_id)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="370" y="240" as="sourcePoint"/>
+                        <mxPoint x="510" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="apply-msg4" value="retrieve_session_data()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="520" y="270" as="sourcePoint"/>
+                        <mxPoint x="660" y="270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="apply-msg5" value="session_data" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="660" y="300" as="sourcePoint"/>
+                        <mxPoint x="520" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="apply-msg6" value="PreviewSession(document, changes)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="510" y="330" as="sourcePoint"/>
+                        <mxPoint x="370" y="330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="apply-msg7" value="verify_document_state()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="365" y="360" as="sourcePoint"/>
+                        <mxPoint x="365" y="380" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="apply-msg8" value="apply_changes(document, confirmed_changes)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="370" y="410" as="sourcePoint"/>
+                        <mxPoint x="810" y="410" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="apply-msg9" value="apply_modifications()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="815" y="440" as="sourcePoint"/>
+                        <mxPoint x="815" y="460" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="apply-msg10" value="reconstruct_json()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="815" y="490" as="sourcePoint"/>
+                        <mxPoint x="815" y="510" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="apply-msg11" value="modified_document, applied_changes" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="810" y="540" as="sourcePoint"/>
+                        <mxPoint x="370" y="540" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="apply-msg12" value="ApplyResponse(document, changes)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="360" y="570" as="sourcePoint"/>
+                        <mxPoint x="220" y="570" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="apply-msg13" value="MCP Response(result_data)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="210" y="590" as="sourcePoint"/>
+                        <mxPoint x="70" y="590" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="sAVuzR5sQ_Qje9VqCebe-1" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Apply&lt;/font&gt;&lt;/b&gt;&lt;b style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;Operation Flow&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="320" width="230" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

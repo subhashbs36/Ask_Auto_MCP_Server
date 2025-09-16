@@ -1,0 +1,142 @@
+## Addition Template
+
+Use this template when processing instructions that add new elements to the JSON document.
+
+### Addition Types
+
+#### New Properties
+- **Object Properties**: Add new key-value pairs to objects
+- **Array Elements**: Insert new items into arrays
+- **Nested Structures**: Create new nested objects or arrays
+- **Default Values**: Add properties with standard default values
+
+#### Insertion Strategies
+- **Append**: Add to the end of arrays or objects
+- **Prepend**: Insert at the beginning
+- **Positional**: Insert at specific locations
+- **Conditional**: Add based on certain criteria
+
+### Processing Steps
+
+1. **Identify Addition Location**
+   ```
+   Target Container: {container_path}
+   New Element: {new_element}
+   Insertion Point: {insertion_strategy}
+   ```
+
+2. **Validate Addition**
+   - Ensure the target container exists and can accept new elements
+   - Check that the new element is appropriate for the context
+   - Verify that addition maintains document structure
+
+3. **Generate New Entry**
+   - Create appropriate path for the new element
+   - Set proper value and data type
+   - Assign unique identifier for tracking
+
+### Addition Patterns
+
+#### Simple Property Addition
+```
+Instruction: "Add a created_at timestamp"
+Target: Root object or specified container
+New Property: "created_at"
+Value: Current timestamp or placeholder
+Confidence: 0.90
+```
+
+#### Array Element Addition
+```
+Instruction: "Add 'admin' to the roles array"
+Target: ["user", "roles"]
+New Element: "admin"
+Position: End of array (append)
+Confidence: 0.95
+```
+
+#### Nested Structure Addition
+```
+Instruction: "Add a new address object with street and city"
+Target: ["user", "address"]
+New Structure: {"street": "", "city": ""}
+Type: Nested object
+Confidence: 0.85
+```
+
+#### Conditional Addition
+```
+Instruction: "Add status field if it doesn't exist"
+Condition: Check for existing status field
+Action: Add only if missing
+Default Value: "active" or appropriate default
+Confidence: 0.80
+```
+
+### Value Determination
+
+#### Default Values by Type
+- **Strings**: Empty string "" or descriptive placeholder
+- **Numbers**: 0, 1, or contextually appropriate value
+- **Booleans**: false or true based on context
+- **Arrays**: Empty array [] or with initial elements
+- **Objects**: Empty object {} or with default properties
+- **Null**: Explicit null when appropriate
+
+#### Context-Aware Values
+- **Timestamps**: Current date/time or placeholder format
+- **IDs**: Generated identifiers or placeholder format
+- **Status Fields**: Appropriate default status values
+- **Counters**: Starting values (usually 0 or 1)
+- **References**: Null or empty until populated
+
+### Placement Strategies
+
+#### Object Property Placement
+- **Logical Grouping**: Place near related properties
+- **Alphabetical Order**: Maintain sorted property order
+- **End Placement**: Add at the end of the object
+- **Beginning Placement**: Add at the start for priority
+
+#### Array Element Placement
+- **Append**: Add to the end (most common)
+- **Prepend**: Add to the beginning
+- **Sorted Insertion**: Maintain array order
+- **Index-Based**: Insert at specific position
+
+### Validation Checklist
+
+- [ ] Addition location is valid and accessible
+- [ ] New element type is appropriate for the container
+- [ ] Value is suitable for the intended purpose
+- [ ] Addition maintains JSON document validity
+- [ ] Path generation is correct for the new element
+- [ ] Confidence reflects certainty about the addition
+
+### Safety Considerations
+
+#### Before Addition
+- **Container Validation**: Ensure target can accept new elements
+- **Naming Conflicts**: Check for existing properties with same name
+- **Structure Impact**: Verify addition won't break document schema
+- **Size Limits**: Consider document size after addition
+
+#### Addition Best Practices
+- **Meaningful Names**: Use descriptive property names
+- **Appropriate Types**: Choose correct data types for values
+- **Consistent Style**: Match existing naming conventions
+- **Future-Proof**: Consider how additions might evolve
+
+### Error Handling
+
+#### Common Issues
+- **Invalid Container**: Target location doesn't exist or can't accept additions
+- **Name Conflicts**: Attempting to add property that already exists
+- **Type Mismatch**: New element type incompatible with container
+- **Path Errors**: Incorrect path generation for new elements
+
+#### Resolution Strategies
+- **Alternative Placement**: Suggest different locations for addition
+- **Name Modification**: Propose alternative names to avoid conflicts
+- **Type Adjustment**: Recommend appropriate data types
+- **Clarification Request**: Ask for more specific addition requirements

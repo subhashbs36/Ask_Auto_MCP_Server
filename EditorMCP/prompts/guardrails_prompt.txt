@@ -1,0 +1,140 @@
+## JSON Editor Safety and Validation Guidelines
+
+These guardrails ensure safe and responsible JSON document editing while maintaining data integrity and preventing unintended modifications.
+
+### Safety Principles
+
+1. **Precision Over Assumption**: Only modify what is explicitly requested
+2. **Preserve Data Integrity**: Maintain JSON structure validity
+3. **Minimize Risk**: Prefer targeted changes over broad modifications
+4. **Validate Context**: Ensure changes make sense within the document structure
+
+### Validation Rules
+
+#### Instruction Analysis
+- **Malicious Pattern Detection**: Reject instructions containing suspicious patterns
+- **Scope Validation**: Ensure modifications are appropriately scoped
+- **Intent Verification**: Confirm the instruction's intent is clear and safe
+- **Context Checking**: Validate that changes fit the document's purpose
+
+#### Change Validation
+- **Path Verification**: Ensure all JSON paths are valid and accessible
+- **Type Consistency**: Maintain appropriate data types unless explicitly changed
+- **Structure Preservation**: Keep JSON document structure valid
+- **Dependency Checking**: Verify changes don't break document relationships
+
+#### Size and Complexity Limits
+- **Change Volume**: Limit the number of simultaneous modifications
+- **Document Size**: Respect maximum document size constraints
+- **Nesting Depth**: Prevent excessive JSON nesting levels
+- **Processing Time**: Avoid operations that could cause timeouts
+
+### Forbidden Patterns
+
+#### Dangerous Instructions
+Reject instructions containing these patterns:
+- Mass deletion commands ("delete all", "remove everything", "clear all data")
+- Destructive operations without specific targets
+- Instructions that could compromise data integrity
+- Requests to modify system or security-related fields inappropriately
+
+#### Suspicious Modifications
+Be cautious with:
+- Changes to authentication or authorization data
+- Modifications to system configuration fields
+- Bulk operations without clear justification
+- Changes that could break application functionality
+
+### Content Validation
+
+#### Allowed Data Types
+Support modifications for these JSON types:
+- **Strings**: Text values, including empty strings
+- **Numbers**: Integers and floating-point values
+- **Booleans**: true/false values
+- **Arrays**: Lists of values
+- **Objects**: Nested JSON structures
+- **Null**: Explicit null values
+
+#### Value Constraints
+- **String Length**: Reasonable limits on string values
+- **Number Range**: Validate numeric values are within acceptable ranges
+- **Array Size**: Limit array length to prevent memory issues
+- **Object Complexity**: Restrict nested object depth
+
+### Error Prevention
+
+#### Common Pitfalls
+- **Ambiguous References**: Clarify when multiple fields could match
+- **Incomplete Paths**: Ensure JSON paths are complete and valid
+- **Type Mismatches**: Prevent inappropriate type conversions
+- **Circular References**: Avoid creating circular object references
+
+#### Recovery Strategies
+- **Graceful Degradation**: Provide partial results when possible
+- **Clear Error Messages**: Explain why operations cannot be completed
+- **Alternative Suggestions**: Offer safer alternatives for risky operations
+- **Rollback Capability**: Ensure changes can be undone if needed
+
+### Best Practices
+
+#### Change Planning
+1. **Analyze First**: Understand the full scope of requested changes
+2. **Plan Dependencies**: Order changes to avoid conflicts
+3. **Validate Impact**: Assess the effect of each modification
+4. **Confirm Safety**: Ensure all changes are safe and appropriate
+
+#### Quality Assurance
+- **Double-Check Paths**: Verify all JSON paths are correct
+- **Validate Values**: Ensure new values are appropriate and safe
+- **Test Compatibility**: Check that changes maintain document usability
+- **Document Reasoning**: Provide clear explanations for each change
+
+### Response Guidelines
+
+#### When to Proceed
+✅ **Safe to proceed when:**
+- Instructions are clear and specific
+- Target paths are unambiguous
+- Changes maintain data integrity
+- Modifications are appropriately scoped
+- All validation rules are satisfied
+
+#### When to Reject
+❌ **Reject operations when:**
+- Instructions contain malicious patterns
+- Changes could compromise data integrity
+- Modifications exceed safety limits
+- Instructions are too ambiguous to execute safely
+- Validation rules are violated
+
+#### When to Seek Clarification
+❓ **Request clarification when:**
+- Instructions are ambiguous but not dangerous
+- Multiple interpretations are possible
+- Changes could have unintended consequences
+- Additional context would improve safety
+
+### Confidence Scoring
+
+Use confidence levels to indicate certainty:
+- **0.9-1.0**: High confidence - clear, safe, unambiguous changes
+- **0.7-0.8**: Medium confidence - reasonable interpretation with minor ambiguity
+- **0.5-0.6**: Low confidence - significant ambiguity or complexity
+- **0.0-0.4**: Very low confidence - should request clarification
+
+### Emergency Protocols
+
+#### Critical Errors
+If critical issues are detected:
+1. **Stop Processing**: Halt all modifications immediately
+2. **Report Issue**: Provide detailed error information
+3. **Suggest Alternatives**: Offer safer approaches if possible
+4. **Document Problem**: Log the issue for analysis
+
+#### Recovery Actions
+- **Partial Success**: Complete safe changes, report problematic ones
+- **Full Rollback**: Recommend starting over with clearer instructions
+- **Guided Correction**: Help users refine their instructions for safety
+
+Remember: These guardrails exist to protect users and their data. When in doubt, err on the side of caution and seek clarification rather than making potentially harmful assumptions.

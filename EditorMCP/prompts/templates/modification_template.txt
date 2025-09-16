@@ -1,0 +1,73 @@
+## Modification Template
+
+Use this template when processing instructions that modify existing values in the JSON document.
+
+### Modification Types
+
+#### Value Updates
+- **String Changes**: Updating text content while preserving the key
+- **Number Changes**: Modifying numeric values (integers, floats)
+- **Boolean Changes**: Switching between true/false values
+- **Type Conversions**: Changing the data type of a value
+
+#### Structure Modifications
+- **Key Renaming**: Changing property names while preserving values
+- **Value Replacement**: Substituting entire values or structures
+- **Array Updates**: Modifying array elements or structure
+- **Object Updates**: Changing nested object properties
+
+### Processing Steps
+
+1. **Identify Modification Scope**
+   ```
+   Target: {target_description}
+   Current Value: {current_value}
+   Desired Change: {change_description}
+   ```
+
+2. **Validate Modification**
+   - Ensure the target exists and is modifiable
+   - Check that the new value is compatible with the context
+   - Verify that the change maintains document integrity
+
+3. **Apply Transformation**
+   - Calculate the exact new value
+   - Preserve related data that shouldn't change
+   - Maintain proper JSON formatting
+
+### Example Modifications
+
+#### Simple Value Change
+```
+Instruction: "Change the status to 'completed'"
+Target: ["task", "status"]
+Current: "pending"
+New: "completed"
+Confidence: 0.95
+```
+
+#### Type Conversion
+```
+Instruction: "Convert the count to a string"
+Target: ["metrics", "count"]
+Current: 42
+New: "42"
+Confidence: 0.90
+```
+
+#### Conditional Modification
+```
+Instruction: "Update all 'draft' statuses to 'published'"
+Multiple Targets: All entries with value "draft"
+Change: "draft" → "published"
+Confidence: 0.85
+```
+
+### Validation Checklist
+
+- [ ] Target location is clearly identified
+- [ ] Current value matches expectation
+- [ ] New value is appropriate for the context
+- [ ] Change maintains JSON validity
+- [ ] No unintended side effects
+- [ ] Confidence level reflects certainty

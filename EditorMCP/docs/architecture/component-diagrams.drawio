@@ -1,0 +1,320 @@
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="5.0" etag="example" version="22.1.16">
+  <diagram name="High-Level Architecture" id="high-level">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- MCP Client -->
+        <mxCell id="client" value="MCP Client&#xa;(EditAgent)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- MCP Server -->
+        <mxCell id="server" value="MCP Server&#xa;Interface" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="250" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Tool Layer -->
+        <mxCell id="preview-tool" value="Preview Tool&#xa;(json_editor_preview)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="150" y="180" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="apply-tool" value="Apply Tool&#xa;(json_editor_apply)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="320" y="180" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Core Services -->
+        <mxCell id="json-processor" value="JSON Processor&#xa;(json2map/map2json)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="50" y="320" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="llm-service" value="LLM Service&#xa;Interface" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="220" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="session-manager" value="Session Manager&#xa;(Redis)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="370" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- LLM Adapters -->
+        <mxCell id="gemini-adapter" value="Gemini&#xa;Adapter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="120" y="460" width="80" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="openai-adapter" value="OpenAI&#xa;Adapter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="220" y="460" width="80" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="custom-adapter" value="Custom&#xa;Adapter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="320" y="460" width="80" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Configuration -->
+        <mxCell id="config" value="Configuration&#xa;Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="520" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Redis -->
+        <mxCell id="redis" value="Redis&#xa;Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="520" y="320" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="conn1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="client" target="server">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="server" target="preview-tool">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="server" target="apply-tool">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="preview-tool" target="json-processor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="preview-tool" target="llm-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="preview-tool" target="session-manager">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="apply-tool" target="json-processor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="apply-tool" target="session-manager">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="llm-service" target="gemini-adapter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="llm-service" target="openai-adapter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="llm-service" target="custom-adapter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="session-manager" target="redis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="conn13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="server" target="config">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <diagram name="Data Flow Architecture" id="data-flow">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Input Layer -->
+        <mxCell id="input" value="JSON Document +&#xa;Natural Language&#xa;Instruction" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="140" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Processing Pipeline -->
+        <mxCell id="parse" value="JSON Parser&#xa;(json2map)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="250" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="map-format" value="Map Format&#xa;[{id, path, value}]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="420" y="50" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="llm-analysis" value="LLM Analysis&#xa;(Proposed Changes)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="250" y="180" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="session-store" value="Session Storage&#xa;(Redis)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="450" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="preview-response" value="Preview Response&#xa;(Changes + Session ID)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="50" y="180" width="150" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Apply Flow -->
+        <mxCell id="apply-request" value="Apply Request&#xa;(Session ID)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="session-retrieve" value="Session Retrieval&#xa;& Validation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="220" y="320" width="130" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="apply-changes" value="Apply Changes&#xa;(map2json)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="400" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="final-output" value="Modified JSON&#xa;Document" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="570" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Flow Arrows -->
+        <mxCell id="flow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="input" target="parse">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="flow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="parse" target="map-format">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="flow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="map-format" target="llm-analysis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="flow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="llm-analysis" target="session-store">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="flow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="llm-analysis" target="preview-response">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="flow6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="apply-request" target="session-retrieve">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="flow7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="session-retrieve" target="apply-changes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="flow8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="apply-changes" target="final-output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- Labels -->
+        <mxCell id="preview-label" value="PREVIEW PHASE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="300" y="10" width="120" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="apply-label" value="APPLY PHASE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="300" y="280" width="120" height="30" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <diagram name="Deployment Architecture" id="deployment">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Client Layer -->
+        <mxCell id="client-layer" value="Client Layer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="700" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="editagent" value="EditAgent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="100" y="120" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="mcp-client" value="MCP Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="250" y="120" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="custom-client" value="Custom Client" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="400" y="120" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Application Layer -->
+        <mxCell id="app-layer" value="Application Layer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="220" width="700" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="mcp-server-deploy" value="JSON Editor&#xa;MCP Server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="150" y="290" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="load-balancer" value="Load Balancer&#xa;(Optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="320" y="290" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="config-mgmt" value="Configuration&#xa;Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="490" y="290" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Service Layer -->
+        <mxCell id="service-layer" value="Service Layer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="420" width="700" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="redis-deploy" value="Redis&#xa;Session Store" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="100" y="490" width="80" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="gemini-service" value="Google Gemini&#xa;API" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="220" y="490" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="openai-service" value="OpenAI&#xa;API" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="350" y="490" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="custom-llm" value="Custom LLM&#xa;Endpoint" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="480" y="490" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="monitoring" value="Monitoring &&#xa;Logging" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="620" y="490" width="100" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="deploy-conn1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="editagent" target="mcp-server-deploy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="deploy-conn2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mcp-client" target="load-balancer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="deploy-conn3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="custom-client" target="load-balancer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="deploy-conn4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="load-balancer" target="mcp-server-deploy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="deploy-conn5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mcp-server-deploy" target="redis-deploy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="deploy-conn6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mcp-server-deploy" target="gemini-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="deploy-conn7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mcp-server-deploy" target="openai-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="deploy-conn8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mcp-server-deploy" target="custom-llm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="deploy-conn9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="mcp-server-deploy" target="monitoring">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

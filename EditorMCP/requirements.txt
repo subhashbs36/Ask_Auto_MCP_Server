@@ -1,0 +1,63 @@
+# Core MCP and JSON processing dependencies
+mcp>=1.0.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# Redis for session management
+# redis>=5.0.0
+# hiredis>=2.0.0  # Optional C extension for better performance
+
+# LLM Service Providers
+google-generativeai>=0.3.0  # For Gemini adapter
+openai>=1.0.0  # For OpenAI adapter
+httpx>=0.25.0  # For custom LLM endpoints
+aiohttp>=3.8.0  # Alternative HTTP client
+
+# Configuration and environment
+PyYAML>=6.0.0
+python-dotenv>=1.0.0
+
+# Logging and monitoring
+structlog>=23.0.0  # Structured logging
+prometheus-client>=0.17.0  # Metrics collection (optional)
+
+# Development and testing dependencies (optional)
+# pytest>=7.0.0
+# pytest-asyncio>=0.21.0
+# pytest-mock>=3.10.0
+# pytest-cov>=4.0.0
+# black>=23.0.0
+# flake8>=6.0.0
+# mypy>=1.0.0
+
+# Security and validation
+cryptography>=41.0.0  # For secure session IDs
+jsonschema>=4.17.0  # Additional JSON validation
+
+# Performance and utilities
+ujson>=5.7.0  # Faster JSON parsing (optional)
+orjson>=3.8.0  # Alternative fast JSON library (optional)
+
+# JSON Editor REST API Requirements
+# Core FastAPI dependencies
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+
+# Configuration
+PyYAML>=6.0.0
+
+# Session management
+# redis>=5.0.0
+
+# HTTP client for testing
+requests>=2.31.0
+
+# Additional utilities
+python-multipart>=0.0.6  # For form data support
+python-jose[cryptography]>=3.3.0  # For JWT tokens (if needed)
+
+# Development dependencies (optional)
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+httpx>=0.25.0  # For async testing

@@ -1,0 +1,149 @@
+# JSON Editor MCP Tool Configuration
+# This is a template configuration file with all available options
+
+# LLM Service Configuration
+llm_config:
+  # Provider options: "gemini", "openai", "custom"
+  provider: "gemini"
+  
+  # API Key for the selected provider (can also be set via environment variable)
+  # For Gemini: GEMINI_API_KEY
+  # For OpenAI: OPENAI_API_KEY
+  api_key: "AIzaSyBjz9XL0EJw6I0P25F6gDcSSWRV8QcV5kk"
+  
+  # Custom endpoint URL (required only for custom provider)
+  endpoint: null
+  
+  # Model name to use
+  model: "gemini-2.0-flash"
+  
+  # Request timeout in seconds
+  timeout: 60
+  
+  # Custom headers for authentication (used with custom provider)
+  custom_headers: null
+    # Example:
+    # Authorization: "Bearer ${CUSTOM_TOKEN}"
+    # X-API-Key: "${CUSTOM_API_KEY}"
+  
+  # Alternative authentication token (instead of api_key)
+  auth_token: null
+  
+  # Retry configuration
+  retry_attempts: 3
+  backoff_factor: 2.0
+
+# Redis Configuration for Session Management (Optional)
+# Set to null to use memory-only storage
+redis_config: null
+
+# Alternative: Enable Redis for persistent storage
+# redis_config:
+#   host: "localhost"
+#   port: 6379
+#   password: null
+#   db: 0
+#   connection_timeout: 5
+#   socket_timeout: 5
+#   max_connections: 10
+#   session_expiration: 86400
+
+# Session Manager Configuration
+prefer_redis: false  # Use memory-first storage
+session_ttl: 3600    # Session time-to-live in seconds (1 hour)
+
+# Prompts Configuration
+prompts_config:
+  # Path to system prompt file
+  system_prompt_file: "prompts/system_prompt.txt"
+  
+  # Template for edit instructions
+  edit_instruction_template: "prompts/templates/edit_instruction.txt"
+  
+  # Path to guardrails prompt file
+  guardrails_prompt_file: "prompts/guardrails_prompt.txt"
+  
+  # Additional template files for different scenarios
+  templates:
+    modification: "prompts/templates/modification_template.txt"
+    deletion: "prompts/templates/deletion_template.txt"
+    addition: "prompts/templates/addition_template.txt"
+
+# Guardrails Configuration
+guardrails_config:
+  # Enable/disable guardrails validation
+  enabled: true
+  
+  # Maximum number of changes allowed per request
+  max_changes_per_request: 50
+  
+  # Patterns that are forbidden in instructions
+  forbidden_patterns:
+    - "delete all"
+    - "remove everything"
+    - "clear all data"
+  
+  # Allowed JSON value types for modifications
+  allowed_json_types:
+    - "string"
+    - "number"
+    - "boolean"
+    - "array"
+    - "object"
+    - "null"
+  
+  # Maximum instruction length
+  max_instruction_length: 1000
+
+# Server Configuration
+server_config:
+  # Maximum document size in bytes (10MB default)
+  max_document_size: 10485760
+  
+  # Logging configuration
+  log_level: "INFO"
+  
+  # Log format: "json" or "text"
+  log_format: "text"
+  
+  # Enable request/response logging for debugging
+  debug_logging: false
+  
+  # Server host and port (for standalone mode)
+  host: "localhost"
+  port: 8000
+
+# Performance Configuration
+performance_config:
+  # Maximum concurrent requests
+  max_concurrent_requests: 10
+  
+  # Request processing timeout in seconds
+  request_timeout: 120
+  
+  # Memory limit for JSON processing (in MB)
+  memory_limit_mb: 512
+  
+  # Maximum JSON nesting depth
+  max_nesting_depth: 100
+
+# Monitoring Configuration
+monitoring_config:
+  # Enable metrics collection
+  enabled: false
+  
+  # Metrics export endpoint
+  metrics_endpoint: "/metrics"
+  
+  # Health check endpoint
+  health_endpoint: "/health"
+  
+  # Request tracking
+  track_requests: true
+  
+  # Performance monitoring
+  track_performance: true
+
+# Environment-specific overrides
+# These can be set via environment variables with the prefix JSON_EDITOR_
+# Example: JSON_EDITOR_LLM_CONFIG_PROVIDER=openai

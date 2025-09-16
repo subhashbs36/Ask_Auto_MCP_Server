@@ -1,0 +1,34 @@
+# Development Environment Configuration
+
+llm_config:
+  provider: "gemini"
+  api_key: "${LLM_API_KEY}"
+  model: "gemini-pro"
+  timeout: 30
+  retry_attempts: 2
+  backoff_factor: 1.5
+
+redis_config:
+  host: "localhost"
+  port: 6379
+  password: ""
+  db: 0
+
+prompts_config:
+  system_prompt_file: "prompts/system_prompt.txt"
+  edit_instruction_template: "prompts/templates/edit_instruction.txt"
+  guardrails_prompt_file: "prompts/guardrails_prompt.txt"
+
+guardrails_config:
+  enabled: true
+  max_changes_per_request: 20  # Lower limit for development
+  forbidden_patterns: []
+  allowed_json_types: ["object", "array", "string", "number", "boolean", "null"]
+
+max_document_size: 1048576  # 1MB for development
+log_level: "DEBUG"
+
+session_config:
+  default_ttl: 1800  # 30 minutes
+  cleanup_interval: 60  # 1 minute
+  max_concurrent_sessions: 100

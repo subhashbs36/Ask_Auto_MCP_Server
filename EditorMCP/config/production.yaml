@@ -1,0 +1,57 @@
+# Production Environment Configuration
+
+llm_config:
+  provider: "${LLM_PROVIDER}"
+  api_key: "${LLM_API_KEY}"
+  model: "${LLM_MODEL:gemini-pro}"
+  timeout: 45
+  retry_attempts: 5
+  backoff_factor: 2.0
+  
+  # Custom endpoint support for production
+  endpoint: "${LLM_ENDPOINT}"
+  custom_headers:
+    Authorization: "Bearer ${LLM_AUTH_TOKEN}"
+    X-Environment: "production"
+
+redis_config:
+  host: "${REDIS_HOST}"
+  port: "${REDIS_PORT:6379}"
+  password: "${REDIS_PASSWORD}"
+  db: "${REDIS_DB:0}"
+  max_connections: 20
+  retry_on_timeout: true
+
+prompts_config:
+  system_prompt_file: "prompts/system_prompt.txt"
+  edit_instruction_template: "prompts/templates/edit_instruction.txt"
+  guardrails_prompt_file: "prompts/guardrails_prompt.txt"
+
+guardrails_config:
+  enabled: true
+  max_changes_per_request: 100
+  
+  # Production security patterns
+  forbidden_patterns:
+    - "rm\\s+-rf"
+    - "DELETE\\s+FROM"
+    - "<script[^>]*>"
+    - "javascript:"
+    - "eval\\s*\\("
+    - "exec\\s*\\("
+  
+  allowed_json_types: ["object", "array", "string", "number", "boolean", "null"]
+
+max_document_size: 52428800  # 50MB for production
+log_level: "${LOG_LEVEL:INFO}"
+
+session_config:
+  default_ttl: 7200  # 2 hours
+  cleanup_interval: 600  # 10 minutes
+  max_concurrent_sessions: 5000
+
+# Production monitoring
+monitoring:
+  enabled: true
+  metrics_port: 9090
+  health_check_interval: 30

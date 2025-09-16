@@ -1,0 +1,106 @@
+## Deletion Template
+
+Use this template when processing instructions that remove elements from the JSON document.
+
+### Deletion Types
+
+#### Complete Removal
+- **Key Deletion**: Remove entire key-value pairs from objects
+- **Array Element Removal**: Delete specific items from arrays
+- **Property Elimination**: Remove object properties completely
+- **Value Clearing**: Set values to null while preserving keys
+
+#### Conditional Deletion
+- **Pattern-Based**: Remove all entries matching a pattern
+- **Value-Based**: Delete entries with specific values
+- **Path-Based**: Remove entries at certain locations
+- **Criteria-Based**: Delete based on multiple conditions
+
+### Processing Steps
+
+1. **Identify Deletion Targets**
+   ```
+   Target Pattern: {target_pattern}
+   Matching Entries: {matching_count}
+   Deletion Type: {deletion_type}
+   ```
+
+2. **Validate Deletion Safety**
+   - Ensure deletion won't break document structure
+   - Check for dependencies on the target data
+   - Verify that removal is intentional and safe
+
+3. **Execute Removal**
+   - Mark entries for deletion (proposed_value: null)
+   - Maintain proper JSON structure after removal
+   - Handle cascading effects if necessary
+
+### Deletion Strategies
+
+#### Precise Deletion
+```
+Instruction: "Remove the temporary field"
+Target: ["data", "temporary"]
+Action: Complete key removal
+Confidence: 0.95
+```
+
+#### Bulk Deletion
+```
+Instruction: "Delete all empty string values"
+Pattern: value === ""
+Action: Remove all matching entries
+Confidence: 0.80
+```
+
+#### Conditional Deletion
+```
+Instruction: "Remove outdated entries"
+Criteria: Check for date fields or status indicators
+Action: Selective removal based on conditions
+Confidence: 0.70
+```
+
+### Safety Considerations
+
+#### Before Deletion
+- **Impact Assessment**: What will be affected by this removal?
+- **Dependency Check**: Are other parts of the document dependent on this data?
+- **Reversibility**: Can this deletion be undone if needed?
+- **Scope Validation**: Is the deletion scope appropriate?
+
+#### Deletion Warnings
+⚠️ **Exercise caution when:**
+- Deleting large amounts of data
+- Removing structural elements
+- Deleting data that might be referenced elsewhere
+- Processing ambiguous deletion instructions
+
+#### Safe Deletion Practices
+- **Specific Targeting**: Be precise about what to delete
+- **Gradual Removal**: Consider step-by-step deletion for complex cases
+- **Backup Awareness**: Assume user has backups before major deletions
+- **Clear Communication**: Explain exactly what will be removed
+
+### Validation Checklist
+
+- [ ] Deletion targets are clearly identified
+- [ ] Removal is safe and won't break document structure
+- [ ] All matching entries are included
+- [ ] Confidence reflects certainty about the deletion
+- [ ] Reasoning explains why deletion is appropriate
+- [ ] No critical data will be lost unintentionally
+
+### Error Handling
+
+#### Common Issues
+- **Ambiguous Targets**: Multiple possible deletion candidates
+- **Protected Data**: Attempting to delete critical information
+- **Structural Impact**: Deletion would break JSON validity
+- **Scope Confusion**: Unclear how much to delete
+
+#### Resolution Strategies
+- **Clarification Request**: Ask for more specific deletion criteria
+- **Partial Deletion**: Remove only the clearly identified targets
+- **Alternative Suggestion**: Propose safer deletion approaches
+- **Impact Warning**: Explain potential consequences of the deletion
