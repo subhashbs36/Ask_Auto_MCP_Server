@@ -9,7 +9,7 @@ llm_config:
   # API Key for the selected provider (can also be set via environment variable)
   # For Gemini: GEMINI_API_KEY
   # For OpenAI: OPENAI_API_KEY
-  api_key: "AIzaSyBjz9XL0EJw6I0P25F6gDcSSWRV8QcV5kk"
+  api_key: ""
   
   # Custom endpoint URL (required only for custom provider)
   endpoint: null
