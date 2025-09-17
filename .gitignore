@@ -281,3 +281,8 @@ ssl/
 *.bak
 *.backup
 backup/
+
+#test files 
+gemini_service2.py
+json_editor_notebook_V3.ipynb
+progressive_json_editor.py

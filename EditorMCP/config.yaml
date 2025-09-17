@@ -50,7 +50,7 @@ redis_config: null
 
 # Session Manager Configuration
 prefer_redis: false  # Use memory-first storage
-session_ttl: 3600    # Session time-to-live in seconds (1 hour)
+session_ttl: 7200    # Session time-to-live in seconds (2 hours)
 
 # Prompts Configuration
 prompts_config:
@@ -93,7 +93,7 @@ guardrails_config:
     - "null"
   
   # Maximum instruction length
-  max_instruction_length: 1000
+  max_instruction_length: 5000
 
 # Server Configuration
 server_config:
