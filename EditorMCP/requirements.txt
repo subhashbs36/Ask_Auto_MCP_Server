@@ -4,11 +4,11 @@ pydantic>=2.0.0
 pydantic-settings>=2.0.0
 
 # Redis for session management
-# redis>=5.0.0
-# hiredis>=2.0.0  # Optional C extension for better performance
+redis>=5.0.0
+hiredis>=2.0.0  # Optional C extension for better performance
 
 # LLM Service Providers
-google-generativeai>=0.3.0  # For Gemini adapter
+google-genai>=0.3.0  # For Gemini adapter
 openai>=1.0.0  # For OpenAI adapter
 httpx>=0.25.0  # For custom LLM endpoints
 aiohttp>=3.8.0  # Alternative HTTP client
@@ -46,9 +46,6 @@ pydantic>=2.5.0
 
 # Configuration
 PyYAML>=6.0.0
-
-# Session management
-# redis>=5.0.0
 
 # HTTP client for testing
 requests>=2.31.0

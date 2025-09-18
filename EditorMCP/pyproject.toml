@@ -32,7 +32,7 @@ dependencies = [
     "pydantic>=2.0.0",
     
     # Session storage
-    #"redis>=5.0.0",
+    "redis>=5.0.0",
     
     # HTTP client for LLM services
     "httpx>=0.25.0",
@@ -47,13 +47,13 @@ dependencies = [
     "structlog>=23.0.0",
     
     # Optional LLM provider dependencies
-    "google-generativeai>=0.3.0; extra == 'gemini'",
+    "google-genai>=0.3.0; extra == 'gemini'",
     "openai>=1.0.0; extra == 'openai'",
 ]
 
 [project.optional-dependencies]
 # LLM Provider extras
-gemini = ["google-generativeai>=0.3.0"]
+gemini = ["google-genai>=0.3.0"]
 openai = ["openai>=1.0.0"]
 all-providers = [
     "google-generativeai>=0.3.0",
@@ -135,7 +135,7 @@ strict_equality = true
 [[tool.mypy.overrides]]
 module = [
     "redis.*",
-    "google.generativeai.*",
+    "google.genai.*",
     "openai.*",
 ]
 ignore_missing_imports = true
